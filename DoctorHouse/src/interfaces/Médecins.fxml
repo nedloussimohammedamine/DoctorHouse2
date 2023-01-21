@@ -58,7 +58,7 @@
           <TableColumn fx:id="id" prefWidth="76.79998779296875" text="ID" />
           <TableColumn fx:id="name" prefWidth="179.199951171875" text="Nom et prénom" />
             <TableColumn fx:id="speciality" prefWidth="192.00006103515625" text="Spécialité" />
-            <TableColumn fx:id="disponibility" prefWidth="126.39996337890625" text="Disponibilité" />
+            <TableColumn fx:id="disponibility" prefWidth="147.39996337890625" text="Disponibilité" />
         </columns>
       </TableView>
       <Label layoutX="505.0" layoutY="22.0" prefHeight="43.0" prefWidth="178.0" text="Médecins" textFill="#52b69a">

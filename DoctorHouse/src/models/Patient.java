@@ -9,13 +9,16 @@ public class Patient {
   
   
   
-public Patient(int id, String name, String mail, String username, String password) {
+public Patient(String name, String mail, String username, String password) {
 	super();
-	this.id = id;
+	
 	this.name = name;
 	this.mail = mail;
 	this.username = username;
 	this.password = password;
+}
+public Patient() {
+	// TODO Auto-generated constructor stub
 }
 public int getId() {
 	return id;

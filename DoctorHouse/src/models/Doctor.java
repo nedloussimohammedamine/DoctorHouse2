@@ -1,11 +1,13 @@
 package models;
 
+import javafx.beans.property.SimpleBooleanProperty;
+
 public class Doctor {
      int id;
      String  speciality;
      String  username;
      String  password;
-     boolean Disponibilite;
+     SimpleBooleanProperty Disponibilite = new SimpleBooleanProperty();
      
      
      public Doctor(int id, String speciality, String username, String password, boolean disponibilite) {
@@ -14,14 +16,14 @@ public class Doctor {
  		this.speciality = speciality;
  		this.username = username;
  		this.password = password;
- 		Disponibilite = disponibilite;
+ 		Disponibilite.set(disponibilite);
  	}
      public Doctor(int id, String username,String speciality,  boolean disponibilite) {
   		super();
   		this.id = id;
   		this.username = username;
   		this.speciality = speciality;
-  		Disponibilite = disponibilite;
+  		Disponibilite.set(disponibilite);
   	}
      
 	public int getId() {
@@ -43,10 +45,10 @@ public class Doctor {
 		this.username = username;
 	}
 	public boolean isDisponibilite() {
-		return Disponibilite;
+		return Disponibilite.get();
 	}
 	public void setDisponibilite(boolean disponibilite) {
-		Disponibilite = disponibilite;
+		Disponibilite.set(disponibilite);
 	}
 
 

@@ -1,21 +1,29 @@
 package controllers;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import models.Doctor;
+import models.Reservation;
 
-public class reservationscontroll {
+public class reservationscontroll implements Initializable {
 
     @FXML
-    private TableColumn<?, ?> address;
+    private TableColumn<Reservation, Timestamp> date;
 
     @FXML
     private Button annuler_reservation;
@@ -24,19 +32,26 @@ public class reservationscontroll {
     private Button back;
 
     @FXML
-    private TableColumn<?, ?> doctor_name;
+    private TableColumn<Reservation, Integer> doctor_name;
 
     @FXML
-    private TableColumn<?, ?> id;
+    private TableColumn<Reservation, Integer> id;
 
     @FXML
-    private TableColumn<?, ?> name;
+    private TableColumn<Reservation, String> name;
 
     @FXML
-    private TableView<?> tbview;
+    private TableView<Reservation> tbview;
+    
+    @FXML
+    private Button mettre_fin;
 
     @FXML
     void annuler_reservation(ActionEvent event) {
+
+    }
+    @FXML
+    void mettre_fin(ActionEvent event) {
 
     }
 
@@ -47,5 +62,23 @@ public class reservationscontroll {
         stage.setScene(new Scene(loader.load()));
     	stage.show();
     }
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		
+		date.setCellValueFactory(new PropertyValueFactory<Reservation,Timestamp>("DateR"));
+		doctor_name.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("Doctor"));
+		name.setCellValueFactory(new PropertyValueFactory<Reservation,String>("Patient"));
+		id.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("idR"));
+		System.out.println(medecinscontroll.getReservationData());
+		try {
+			tbview.getItems().setAll(medecinscontroll.getReservationData().getAllReservations(logincontrol.getPt().getId()));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
 
 }

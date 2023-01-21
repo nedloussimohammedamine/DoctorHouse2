@@ -4,12 +4,16 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import com.mysql.cj.MysqlConnection;
 import com.mysql.cj.protocol.Resultset;
 
 import application.Database;
+import database.DoctorDatabase;
+import database.PatientDatabase;
+import database.ReservationData;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +26,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.Doctor;
+import models.Patient;
+import models.Reservation;
 
 public class medecinscontroll implements Initializable{
 	
@@ -47,11 +53,39 @@ public class medecinscontroll implements Initializable{
     Connection conn = null;
     Resultset rs = null;
     PreparedStatement pst = null;
+    private static ReservationData reservationData = new ReservationData();
+    private static Doctor doctor;
+    DoctorDatabase doc = new DoctorDatabase();
     
-    
-    @FXML
-    void commander(ActionEvent event) {
+    public static Doctor getDoctor() {
+		return doctor;
+	}
 
+	public static void setDoctor(Doctor doctor) {
+		medecinscontroll.doctor = doctor;
+	}
+
+	public static ReservationData getReservationData() {
+		return reservationData;
+	}
+
+	public static void setReservationData(ReservationData reservationData) {
+		medecinscontroll.reservationData = reservationData;
+	}
+
+	@FXML
+    void commander(ActionEvent event) throws SQLException, IOException {
+        doctor = tbview.getSelectionModel().getSelectedItem();
+        doctor.setDisponibilite(false);
+        doc.isDispo(doctor);
+        Reservation reserv = new Reservation(logincontrol.getPt().getId(),doctor.getId());
+        reservationData.addReservation(reserv);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/interfaces/Reservations.fxml"));
+        Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(loader.load()));
+    	stage.show();
+		
+        
     }
     
     public void initialize(URL url, ResourceBundle rb) {
@@ -62,11 +96,9 @@ public class medecinscontroll implements Initializable{
     	speciality.setCellValueFactory(new PropertyValueFactory<Doctor,String>("speciality"));
     	disponibility.setCellValueFactory(new PropertyValueFactory<Doctor,Boolean>("Disponibilite"));
     	
-    	ListM = Database.getDataDoctor();
-    	for(Doctor d: ListM) {
-    		System.out.println(d.getUsername());
-    	}
-    	tbview.setItems(ListM);
+    	
+    	tbview.getItems().setAll(doc.getDataDoctor());
+    	
     	
     }
     
@@ -77,6 +109,8 @@ public class medecinscontroll implements Initializable{
         stage.setScene(new Scene(loader.load()));
     	stage.show();
     }
+
+    
 }
 
 

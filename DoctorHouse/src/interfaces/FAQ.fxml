@@ -49,21 +49,21 @@
       </Label>
       <Label layoutX="271.0" layoutY="88.0" prefHeight="17.0" prefWidth="498.0" text="C'est quoi DoctorHouse ?" textFill="#52b69a">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <Label layoutX="269.0" layoutY="119.0" prefHeight="17.0" prefWidth="532.0" text="DoctorHouse est une plateforme en ligne qui permet de réserver des médecins en cas de besoin" />
       <Label layoutX="271.0" layoutY="145.0" prefHeight="17.0" prefWidth="350.0" text="à domicile, en choisissant le spécialité convenable du médecin ." />
       <Label layoutX="271.0" layoutY="186.0" text="Comment utiliser DoctorHouse ?" textFill="#52b69a">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <Label layoutX="269.0" layoutY="218.0" prefHeight="17.0" prefWidth="559.0" text="DoctorHouse est une plateforme simplifié pour facilité l'utilisation des clients à tout tranches d'âges" />
       <Label layoutX="271.0" layoutY="245.0" prefHeight="17.0" prefWidth="568.0" text="inscrivez vous, puis connectez vous et démarrez !" />
       <Label layoutX="269.0" layoutY="282.0" text="Comment rejoindre DoctorHouse en tant que médecin ?" textFill="#52b69a">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <Label layoutX="271.0" layoutY="320.0" prefHeight="17.0" prefWidth="550.0" text="En cas de volonté pour rejoindre notre équipe il suffit d'envoyer votre C.V sur l'adresse suivante" />
