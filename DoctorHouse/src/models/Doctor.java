@@ -60,6 +60,10 @@ public class Doctor {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public boolean isDisponibilite(boolean b) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 }

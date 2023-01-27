@@ -21,6 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -76,6 +77,7 @@ public class medecinscontroll implements Initializable{
 	@FXML
     void commander(ActionEvent event) throws SQLException, IOException {
         doctor = tbview.getSelectionModel().getSelectedItem();
+        if (doctor.isDisponibilite(false)) {
         doctor.setDisponibilite(false);
         doc.isDispo(doctor);
         Reservation reserv = new Reservation(logincontrol.getPt().getId(),doctor.getId());
@@ -84,6 +86,15 @@ public class medecinscontroll implements Initializable{
         Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(loader.load()));
     	stage.show();
+        } else {
+        	Alert alert = new Alert(Alert.AlertType.ERROR);
+   	    	alert.setTitle("Erreur");
+   	    	alert.setHeaderText("Le docteur n'est pas disponible pour le moment ");
+   	    	alert.setContentText("Veuillez changer le docteur ou attendre qu'il soit prêt");
+   	    	alert.getDialogPane().getStylesheets().add("/application/application.css");
+   	    	alert.showAndWait();	
+        	
+        }
 		
         
     }

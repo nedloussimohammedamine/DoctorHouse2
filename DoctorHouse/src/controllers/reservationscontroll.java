@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ResourceBundle;
 
+import database.DoctorDatabase;
+import database.ReservationData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +23,19 @@ import models.Doctor;
 import models.Reservation;
 
 public class reservationscontroll implements Initializable {
+	private static Reservation reservation;
+	private static ReservationData reservationData = new ReservationData();
+	ReservationData doc = new ReservationData();
+	
+	 	public static Reservation getReservation() {
+			return reservation;
+		}
+
+		public static void setReservation(Reservation reservation) {
+			reservationscontroll.reservation = reservation;
+		}
+		
+		
 
     @FXML
     private TableColumn<Reservation, Timestamp> date;
@@ -45,10 +60,24 @@ public class reservationscontroll implements Initializable {
     
     @FXML
     private Button mettre_fin;
+    
+    public static ReservationData getReservationData() {
+		return reservationData;
+	}
+
+	public static void setReservationData(ReservationData reservationData) {
+		reservationscontroll.reservationData = reservationData;
+	}
 
     @FXML
-    void annuler_reservation(ActionEvent event) {
-
+    void annuler_reservation(ActionEvent event) throws SQLException {
+    	final Reservation selectedReservation = tbview.getSelectionModel().getSelectedItem();
+    	reservation = tbview.getSelectionModel().getSelectedItem();
+    	Reservation reserv = new Reservation();
+    	reservationData.deleteReservation(reserv);
+    	tbview.getItems().remove(reservation);
+    	
+    	
     }
     @FXML
     void mettre_fin(ActionEvent event) {
