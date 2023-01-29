@@ -64,6 +64,15 @@ public class Doctor {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	public SimpleBooleanProperty getDisponibiliteProperty() {
+		return Disponibilite;
+	}
+	public Boolean getDisponibilite() {
+		return Disponibilite.getValue();
+	}
+	public void setDisponibilite(SimpleBooleanProperty disponibilite) {
+		Disponibilite = disponibilite;
+	}
 	
 	
 }

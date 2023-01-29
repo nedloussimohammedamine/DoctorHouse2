@@ -55,7 +55,7 @@ public class logincontrol {
     void login(ActionEvent e) throws IOException, SQLException {
     	//System.out.println("login");
     	if(patientDB.getPatient(username.getText())==null) {
-    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		Alert alert  = new Alert(Alert.AlertType.ERROR);
    	    	alert.setTitle("Invalid Input");
    	    	alert.setHeaderText("Your username is incorrect ");
    	    	alert.setContentText("Make sure you enter your correct username");

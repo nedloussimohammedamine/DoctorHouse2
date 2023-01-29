@@ -48,6 +48,14 @@ public class Reservation {
 		 Instant instant = Instant.now();
 			DateR = Timestamp.from(instant);
 	}
+	public Reservation(int idR, Timestamp dateR, int patient, int doctor) {
+		// recherche
+		super();
+		this.idR = idR;
+		DateR = dateR;
+		Patient = patient;
+		Doctor = doctor;
+	}
 	
     
     

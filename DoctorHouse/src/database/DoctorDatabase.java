@@ -44,6 +44,7 @@ public class DoctorDatabase {
 		
 	}
 	public void isDispo(Doctor doctor) throws SQLException {
+		
 		String query = "update doctor set disponibility=? "
 		          + " where ID = ?";
 				PreparedStatement ps
@@ -76,6 +77,34 @@ public class DoctorDatabase {
  		   }
  	   return Doctors;
     }
+	public  Doctor getDoctor(int id) throws SQLException {
+		 String query = "select * from doctor where ID =?";
+		 
+	        PreparedStatement ps
+	            = con.prepareStatement(query);
+	        ps.setInt(1, id);
+	      
+	        ResultSet rs = ps.executeQuery();
+	     
+	      boolean isnotnull=false;
+	        while (rs.next()) {
+	        	isnotnull=true;
+	        	dr.setId(rs.getInt("ID"));
+	        	dr.setUsername(rs.getString("username"));
+	        	dr.setPassword(rs.getString("password"));
+	        	dr.setSpeciality(rs.getString("speciality"));
+	        	dr.setDisponibilite(rs.getBoolean("disponibility"));
+		
+	         }
+	        if(isnotnull) {
+	        	return dr;
+	        }else {
+	        	return null;
+	        }
+	      
+
+		
+	}
 
 	
 	

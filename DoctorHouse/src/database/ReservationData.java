@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import application.Database;
+import controllers.logincontrol;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import models.Reservation;
@@ -26,27 +27,24 @@ public class ReservationData {
 		System.out.println("Reservation created");
 		
 	}
-     public void deleteReservation(Reservation reservation) throws SQLException {
-    	 String query
-    	 = "delete from reservation(idReservation, "
-    	   + "DateReservation,Patient_idPatient,doctor_ID) VALUES (?, ?, ?)";
-    	 PreparedStatement ps = con.prepareStatement(query);
-    	 ps.setInt(1, reservation.getIdR());
-    	 ResultSet rs = ps.executeQuery();
-	     reservations=FXCollections.observableArrayList();
-	     reservations.remove(reservation);
-    	 System.out.println("Reservation Supressed");
+     public void  deleteReservation(Reservation reservation) throws SQLException {
+    	 getAllReservations() ;
+    	 String query = "delete from reservation where idReservation =?";
+ 		PreparedStatement ps = con.prepareStatement(query);
+ 		ps.setInt(1, reservation.getIdR());
+ 		ps.executeUpdate();
+ 		System.out.println(reservation.getIdR());
+ 		
+ 		for(int i=0;i<reservations.size();i++) {
+ 			if(reservations.get(i).getIdR()== reservation.getIdR()) {
+ 				reservations.remove(i);
+ 			}
+ 		}
+ 		System.out.println("Delete Reservation");
     	 
-    	    while(rs.next()) {
-    	    Reservation reservations = new Reservation();
-        	reservations.setDoctor(rs.getInt("idReservation"));
-        	reservations.setDateR(rs.getTimestamp("DateReservation"));; 
-        	reservations.setIdR(rs.getInt("Patient_idPatient"));
-        	reservations.setIdR(rs.getInt("Doctor_ID"));
-        	System.out.println(reservations.getDateR().toString());
-    	 }
      }
-     public ObservableList<Reservation> getAllReservations(int id) throws SQLException {
+     public ObservableList<Reservation> getAllReservations() throws SQLException {
+    	 int id= logincontrol.getPt().getId();
     	 System.out.println("get all");
 		 String query = "select * from reservation where Patient_idPatient = ?";
 	        PreparedStatement ps= con.prepareStatement(query);

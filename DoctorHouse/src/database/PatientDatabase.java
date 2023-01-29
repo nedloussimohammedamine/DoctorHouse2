@@ -12,7 +12,7 @@ public class PatientDatabase {
 	static Connection con = Database.getConnection();
 	
 		
-		public Patient getPatient(String username) throws SQLException {
+		public Patient getPatient(String username) throws SQLException  {
 			   System.out.println(username);
 				String query
 		        = "select * from patient where username = ?";

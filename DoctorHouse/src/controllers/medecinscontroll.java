@@ -50,6 +50,7 @@ public class medecinscontroll implements Initializable{
 
     
     ObservableList<Doctor> ListM;
+    //x
     int index = -1 ;
     Connection conn = null;
     Resultset rs = null;
@@ -77,7 +78,8 @@ public class medecinscontroll implements Initializable{
 	@FXML
     void commander(ActionEvent event) throws SQLException, IOException {
         doctor = tbview.getSelectionModel().getSelectedItem();
-        if (doctor.isDisponibilite(false)) {
+        if (doctor.isDisponibilite()) {
+        	System.out.println("TEST");
         doctor.setDisponibilite(false);
         doc.isDispo(doctor);
         Reservation reserv = new Reservation(logincontrol.getPt().getId(),doctor.getId());
@@ -109,6 +111,7 @@ public class medecinscontroll implements Initializable{
     	
     	
     	tbview.getItems().setAll(doc.getDataDoctor());
+    	System.out.println(doc.getDataDoctor().get(1).isDisponibilite());
     	
     	
     }

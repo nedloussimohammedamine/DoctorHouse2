@@ -21,12 +21,13 @@ public class Database {
 			    String databaseName = "doctorhouse";
 	            String databaseUser = "root";
 			    String databasePassword = "0000";
+			    // x
 	            String url = "jdbc:mysql://localhost:3306/"+databaseName+"?autoReconnect=true&useSSL=false&characterEncoding=utf8";
 	     
 			    
 			    
 			   try {
-				   System.out.println("before connection");
+				   System.out.println("before connexion");
 				   Class.forName("com.mysql.cj.jdbc.Driver");
 				   connection =  DriverManager.getConnection(url,databaseUser,databasePassword);
 				   System.out.println("After connexion");

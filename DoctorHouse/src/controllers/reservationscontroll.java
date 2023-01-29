@@ -71,17 +71,21 @@ public class reservationscontroll implements Initializable {
 
     @FXML
     void annuler_reservation(ActionEvent event) throws SQLException {
-    	final Reservation selectedReservation = tbview.getSelectionModel().getSelectedItem();
-    	reservation = tbview.getSelectionModel().getSelectedItem();
-    	Reservation reserv = new Reservation();
-    	reservationData.deleteReservation(reserv);
-    	tbview.getItems().remove(reservation);
+    	 Reservation selectedReservation = tbview.getSelectionModel().getSelectedItem();
+    	 DoctorDatabase doctor  = new DoctorDatabase();
+    	 Doctor docmodel = doctor.getDoctor(selectedReservation.getDoctor());
+    	 docmodel.setDisponibilite(true);
+      doctor.isDispo(docmodel);	
+    	reservationData.deleteReservation(selectedReservation);
     	
+    	tbview.getItems().setAll(medecinscontroll.getReservationData().getAllReservations());
     	
     }
     @FXML
-    void mettre_fin(ActionEvent event) {
-
+    void mettre_fin(ActionEvent event) throws SQLException {
+   	    Reservation selectedReservation = tbview.getSelectionModel().getSelectedItem();
+     	reservationData.deleteReservation(selectedReservation);
+     	tbview.getItems().setAll(medecinscontroll.getReservationData().getAllReservations());
     }
 
     @FXML
@@ -101,7 +105,7 @@ public class reservationscontroll implements Initializable {
 		id.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("idR"));
 		System.out.println(medecinscontroll.getReservationData());
 		try {
-			tbview.getItems().setAll(medecinscontroll.getReservationData().getAllReservations(logincontrol.getPt().getId()));
+			tbview.getItems().setAll(medecinscontroll.getReservationData().getAllReservations());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
