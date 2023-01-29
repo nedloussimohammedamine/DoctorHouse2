@@ -9,39 +9,39 @@ Réalisé par Nedloussi Mohammed Amine , Omar Haboub , Omar Mezzour /CYBERSECURI
 
 Les interfaces :
 
-#Interface Login:
+# Interface Login:
  ![](Interfaces_ihm/Login.png)
-#Interface Register
+# Interface Register
  ![](Interfaces_ihm/Register.png)
-#Interface Accueil
+# Interface Accueil
  ![](Interfaces_ihm/Accueil.png)
-#Interface Medecins
+# Interface Medecins
  ![](Interfaces_ihm/Medecins.png)
-#Interface Reservations
+# Interface Reservations
  ![](Interfaces_ihm/Reservations.png)
-#Interface Confidentalité
+# Interface Confidentalité
  ![](Interfaces_ihm/Confidentalité.png)
-#Interface Conditions Générales
+# Interface Conditions Générales
  ![](Interfaces_ihm/Conditions Generales.png)
-#Interface FAQ
+# Interface FAQ
  ![](Interfaces_ihm/FAQ.png)
 
 Pour ce projet , il est réalisé avec JAVAFX avec le modèle MVC ( MODEL,VIEW,CONTROLLER )
 Il existe 8 différents interfaces comme mentionnée ci-dessus , nous avons utilisons ECLIPSE avec JDK 19 et MYSQL.
 
-##Le code :
-##src/application/Database
+## Le code :
+## src/application/Database
 public static Connection connection = null;
 			static {
 }
 Ce code établit une connexion à une base de données MySQL nommée "doctorhouse". Les paramètres de connexion de la base de données, tels que l'URL, le nom d'utilisateur et le mot de passe, sont définis dans le bloc statique. Il utilise l'API JDBC et le pilote MySQL Connector/J pour établir une connexion à la base de données. Si la connexion est établie avec succès, il affiche "After connexion". S'il y a une erreur, il affichera la trace de pile d'erreur et la cause de l'erreur.
 
-##src/application/Main
+## src/application/Main
 Ce code représente la classe principale de l'application qui hérite de la classe "Application" de JavaFX. La méthode "start" charge un fichier FXML nommé "Login.fxml" pour créer la scène de l'interface utilisateur. La scène est ensuite ajoutée à la scène principale et affichée. La méthode "main" lance l'application en appelant la méthode "launch".
 src/application/Application.css
 Ce code inplémente tout simplement le style CSS des différentes alertes en cas de problèmes.
 
-##src/controllers/accueilcontroll.java
+## src/controllers/accueilcontroll.java
 Dans notre page d'accueil , il ya une redirection vers 5 différentes interfaces avec le même code 
 void redirec_conditiongenerales(ActionEvent e) throws IOException {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/interfaces/ConditionsGenerales.fxml"));
@@ -50,9 +50,9 @@ void redirec_conditiongenerales(ActionEvent e) throws IOException {
     	stage.show();
 Exemple avec la redirection vers conditions générales
 
-##src/controllers/conditionsgeneralescontroll.java
-##src/controllers/Faq.java
-##src/controllers/Confidentalite.java
+## src/controllers/conditionsgeneralescontroll.java
+## src/controllers/Faq.java
+## src/controllers/Confidentalite.java
 
 Pour les 3 pages il ya seulement du texte écrit sous SceneBuilder ainsi qu'un bouton qui redirège vers l'interface Accueil
 src/controllers/Login.java
@@ -64,7 +64,7 @@ void register(ActionEvent e) throws IOException {
 
 Pour l'action register elle redirège tout simplement le patient pour s'inscrire .
 
-##src/controllers/medecinscontroll.java
+## src/controllers/medecinscontroll.java
 
  void commander(ActionEvent event) throws SQLException, IOException { }
 
@@ -93,7 +93,7 @@ public void cb(ActionEvent event) throws IOException { }
 
 Ce code permet la redirection vers la page de LOGIN .
 
-##src/controllers/reservationscontroll.java
+## src/controllers/reservationscontroll.java
 void annuler_reservation(ActionEvent event) throws SQLException { }
 
 Ce code représente une fonction en Java qui annule une réservation. La fonction prend un événement "ActionEvent" en entrée et peut lever une exception "SQLException".
@@ -112,7 +112,7 @@ public void initialize(URL arg0, ResourceBundle arg1) { }
 Ce code initialise une vue pour afficher les données de réservation dans une table (tbview). Les colonnes de la table, date, nom de médecin, nom de patient et id, sont définies pour afficher les valeurs associées à chaque réservation à partir de la propriété de l'objet de réservation. Ensuite, la fonction obtient une liste de toutes les réservations à partir de la classe de contrôle "medecinscontroll" et met à jour la table (tbview) en conséquence. En cas d'erreur de connexion à la base de données, une exception est générée et les détails de l'erreur sont imprimés.
 
 
-##src/database/DoctorDatabase
+## src/database/DoctorDatabase
 public void isDispo(Doctor doctor) throws SQLException { }
 
 public ObservableList<Doctor> getDataDoctor() { }
@@ -127,7 +127,7 @@ La requête est exécutée et le résultat est stocké dans un objet ResultSet.
 Le ResultSet est parcouru pour peupler les champs d'un objet Doctor (dr).
 La variable booléenne "isnotnull" est définie sur true si le ResultSet n'est pas vide.
 Si "isnotnull" est true, l'objet Doctor peuplé est renvoyé, sinon, null est renvoyé.
-##src/database/PatientDatabase
+## src/database/PatientDatabase
 
 public Patient getPatient(String username) throws SQLException  { }
 
@@ -146,7 +146,7 @@ La méthode crée une requête SQL pour insérer un nouveau patient dans la tabl
 Lorsque la requête est exécutée avec "executeUpdate", les informations du patient sont ajoutées à la table "patient".
 Enfin, le code affiche un message de confirmation "Patient ajouté".
 
-##src/database/ReservationData
+## src/database/ReservationData
 
 
 
@@ -170,16 +170,16 @@ Ensuite, une liste observable de réservations est créée en utilisant FXCollec
 Pour chaque enregistrement dans le ResultSet, un objet Reservation est créé et les détails de la réservation sont récupérés à partir du ResultSet.
 Les objets Reservation sont ajoutés à la liste observable de réservations.
 Finalement, la liste observable de réservations est renvoyée.
-##src/models/Patient
+## src/models/Patient
 Attributs
 Setters and getters
 Contructors
 
-##src/models/Doctor
+## src/models/Doctor
 Attributs
 Setters and getters
 Contructors
-##src/models/Reservation
+## src/models/Reservation
 
 Attributs
 Setters and getters
