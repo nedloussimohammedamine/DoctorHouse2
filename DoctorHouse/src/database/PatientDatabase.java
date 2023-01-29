@@ -40,6 +40,19 @@ public class PatientDatabase {
 				else	return null;
 			}	
 		
+		public void addPatient(Patient patient) throws SQLException {
+			
+			String query
+	        = "insert into patient(mail,Name,password,username) VALUES (?, ?, ?, ?)";
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setString(1, patient.getMail());
+			ps.setString(2, patient.getName());
+			ps.setString(3, patient.getPassword());
+			ps.setString(4, patient.getUsername());
+			ps.executeUpdate();
+			System.out.println("Patient ajouté");
+			
+		}
 		
 		
 	}
