@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -36,8 +37,8 @@
             </Label>
          </children>
       </VBox>
-      <TextField id="1" fx:id="name" alignment="TOP_CENTER" layoutX="477.0" layoutY="107.0" prefHeight="44.0" prefWidth="251.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 2 0;" />
-      <TextField id="2" fx:id="username" layoutX="477.0" layoutY="175.0" prefHeight="33.0" prefWidth="251.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 2 0;" />
+      <TextField id="1" fx:id="name" alignment="TOP_CENTER" layoutX="477.0" layoutY="126.0" prefHeight="25.0" prefWidth="251.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 2 0;" />
+      <TextField id="2" fx:id="username" alignment="TOP_CENTER" layoutX="477.0" layoutY="183.0" prefHeight="25.0" prefWidth="251.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 2 0;" />
       <Button id="6" fx:id="Inscriptionn" layoutX="492.0" layoutY="401.0" mnemonicParsing="false" onAction="#Inscriptionn" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: #52b69a;" text="Valider">
          <effect>
             <DropShadow height="10.5" radius="5.05" width="11.7">
@@ -69,12 +70,12 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField id="1" fx:id="mail" alignment="TOP_CENTER" layoutX="477.0" layoutY="218.0" prefHeight="44.0" prefWidth="251.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 2 0;" />
-      <TextField id="1" fx:id="mdp" alignment="TOP_CENTER" layoutX="477.0" layoutY="285.0" prefHeight="33.0" prefWidth="251.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 2 0;" />
+      <TextField id="1" fx:id="mail" alignment="TOP_CENTER" layoutX="477.0" layoutY="241.0" prefHeight="27.0" prefWidth="251.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 2 0;" />
       <ImageView fitHeight="103.0" fitWidth="133.0" layoutX="500.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../Desktop/png-clipart-computer-icons-responsive-web-design-inscription-miscellaneous-angle-thumbnail-removebg-preview.png" />
          </image>
       </ImageView>
+      <PasswordField fx:id="mdp" alignment="TOP_CENTER" layoutX="477.0" layoutY="296.0" prefHeight="25.0" prefWidth="251.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 0 0 2 0;" />
    </children>
 </Pane>
