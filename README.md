@@ -22,7 +22,7 @@ Les interfaces :
 # Interface Confidentalité
  ![](Interfaces_ihm/Confidentalité.png)
 # Interface Conditions Générales
- ![](Interfaces_ihm/Conditions \Generales.png)
+ ![](Interfaces_ihm/ConditionsGenerales.png)
 # Interface FAQ
  ![](Interfaces_ihm/FAQ.png)
 
