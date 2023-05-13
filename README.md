@@ -5,7 +5,7 @@
 
 Projet DOCTORHOUSE
 
-Réalisé par Nedloussi Mohammed Amine , Omar Haboub , Omar Mezzour /CYBERSECURITY.
+Réalisé par Nedloussi Mohammed Amine
 
 Les interfaces :
 
